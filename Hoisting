@@ -1,0 +1,76 @@
+What is let, var and const? Explain hoisting? what is TDZ? explain with an example?
+What is global scope, local and block scope?
+
+1. Javascript follows lexical scoping
+Let keyword is introduced in ES6(ES2015) and has block scope;
+Var keyword is having functional scope;
+const keyword is having block scope;
+
+Example:
+----------
+
+function start(){
+  for(var i=0; i<5; i++){
+  if(true){
+    var color = 'red';
+    }
+  }
+  console.log(color); // output is red because the keyword var is having functional scope and is accesbile throughout the function
+  }
+  start();
+  
+  using Let Keyword:
+  ------------------
+  function start(){
+  for(var i=0; i<5; i++){
+  if(true){
+    let color = 'red';
+    }
+  }
+  console.log(color); // output is reference error:color is not defined because 
+  //the keyword let is having block scope and is accesbile within the block here it is if block
+  }
+  start();
+
+Global Variables:
+-----------------
+
+Var: when we use var outside the function it creates a global variable and attaches the varaible to the window object
+ 
+Hoisting:
+---------
+Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
+
+    console.log (greeter);
+    var greeter = "say hello"
+    
+    this is interpreted as follows:
+    -------------------------------
+    var greeter;
+    console.log(greeter); // greeter is undefined
+    greeter = "say hello"
+    
+let declarations are hoisted to the top. Unlike var which is initialized as undefined, 
+the let keyword is not initialized. So if you try to use a let variable before declaration, you'll get a Reference Error.
+
+const:
+-------
+const cannot be updated or re-declared
+This means that the value of a variable declared with const remains the same within its scope.
+
+    const greeting = "say Hi";
+    greeting = "say Hello instead";// error: Assignment to constant variable. 
+    
+    const greeting = "say Hi";
+    const greeting = "say Hello instead";// error: Identifier 'greeting' has already been declared.   
+
+differences between var,let and const:
+--------------------------------------
+
+var declarations are globally scoped or function scoped while let and const are block scoped.
+var variables can be updated and re-declared within its scope; let variables can be updated but not re-declared; 
+const variables can neither be updated nor re-declared.
+They are all hoisted to the top of their scope. But while var variables are initialized with undefined, let and const variables are not initialized.
+While var and let can be declared without being initialized, const must be initialized during declaration.
+
+
