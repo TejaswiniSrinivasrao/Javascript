@@ -1,0 +1,8 @@
+What are arrow functions and name a key difference between arrow functions and regular javascript functions?
+
+Arrow Functions:
+________________
+
+
+Arrow functions (also called “fat arrow functions”) are undoubtedly one of the more popular features of ES6. 
+They introduced a new way of writing concise functions.
