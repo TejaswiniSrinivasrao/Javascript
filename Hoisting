@@ -41,6 +41,8 @@ Hoisting:
 ---------
 Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
 
+
+
     console.log (greeter);
     var greeter = "say hello"
     
@@ -50,8 +52,33 @@ Hoisting is a JavaScript mechanism where variables and function declarations are
     console.log(greeter); // greeter is undefined
     greeter = "say hello"
     
+    Example:
+    ________
+    
+     foo();
+     function foo(){
+     console.log("hoisted");
+     } // Hoisted is ouput because function declarations get hoisted so it will not throw error.
+     
+     otherway :
+     ________
+     
+     foo();
+     const foo = function(){
+     console.log("not hoisted because const never get hoisted");
+     }// output : reference error
+     
+     foo();
+     var foo = function(){
+     console.log("not hoisted because const never get hoisted");
+     } // output foo is not a function // because left hand side gets hoisted always in js not the right hand side so it knows var foo but it doesnot know
+     //the function assigned
+     
+     
 let declarations are hoisted to the top. Unlike var which is initialized as undefined, 
 the let keyword is not initialized. So if you try to use a let variable before declaration, you'll get a Reference Error.
+Let and const never get hoisted only var and function declaration gets hoisted; 
+Only declarations get hoisted assignemnts will not get hoisted.
 
 const:
 -------
