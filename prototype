@@ -1,0 +1,62 @@
+What is Prototype in javascript?
+
+Prototype allows javascript object to inherit from one another.
+
+Example:
+________
+
+const vehicle={
+  drive: function(){
+    console.log("the car is driving");
+    }
+   };
+   
+  const car = {
+    make: "Honda",
+   };
+   
+   Object.setPrototypeOf(car, vehicle);
+   car.drive();
+   
+   
+  *** In JavaScript, every function and object has a property named prototype by default.
+  Example 1:
+  ____________
+  function Person () {
+    this.name = 'John',
+    this.age = 23
+}
+
+const person = new Person();
+
+// checking the prototype value
+console.log(Person.prototype);
+
+Example 2:
+___________
+
+// constructor function
+function Person () {
+    this.name = 'John',
+    this.age = 23
+}
+
+// creating objects
+const person1 = new Person();
+const person2 = new Person();
+
+// adding property to constructor function
+Person.prototype.gender = 'male';
+
+// prototype value of Person
+console.log(Person.prototype);
+
+// inheriting the property from prototype
+console.log(person1.gender);
+console.log(person2.gender);
+
+Output: Person { gender: 'male' }
+male
+male
+
+
